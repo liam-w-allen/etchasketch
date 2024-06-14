@@ -1,20 +1,17 @@
-const grid = [...Array(16)].map(e => Array(16));
 const container = document.getElementById("container");
 const button = document.getElementById("button");
 var height = 1000;
+const grid = [];
+const stylesheet = document.styleSheets[0];
 
 function generateGrid(input) {
     height = 1000 / input;
-    for (let i = 0; i < input; i++) {
-        for (let j = 0; j < input; j++) {
-            grid[i][j] = document.createElement("div");
-            grid[i][j].style.backgroundColor = "grey";
-            grid.setAttribute("style")
-            grid[i][j].addEventListener("mouseover", function () {
-                grid[i][j].style.backgroundColor = "black";
-            });
-            container.appendChild(grid[i][j]);
-        }
+    for (let i = 0; i < input * input; i++) {
+        const box = document.createElement("div");
+        box.classList.add("box");
+        stylesheet.cssRules[0].style.height = height;
+        stylesheet.cssRules[1].style.width = height;
+        container.appendChild(box);
     }
 }
 
